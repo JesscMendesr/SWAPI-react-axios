@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { Personagem } from '../../models/Personagem';
 import { api } from '../../service/Service';
 import "./Card.css"
+import { Filme } from '../../models/Filme';
+import { Link } from 'react-router-dom';
 
 function Card() {
 
   
   const [allData, setAllData] = useState<Personagem[]>([])
+  const [films, setFilms] = useState<Filme[]>([])
 
 
   const getAll = async () => {
@@ -32,6 +35,7 @@ function Card() {
       allData.length === 0 ? <p>Carregando...</p> : (
         allData.map((item) =>(
           <>
+          <Link to={`/people/${item}`}>
           <div className='container-card'>
             <h3>{item.name}</h3>
             <ul>
@@ -41,8 +45,7 @@ function Card() {
               <li>Mass: <span>{item.mass}</span></li>
             </ul>
           </div>
-          
-          <div></div>
+          </Link>
           </>
         ))
       )

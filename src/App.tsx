@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import './App.css'
 import Home from './paginas/home/Home';
+import PersonagemIndividual from './paginas/PersonagemIndv/PersonagemIndividual';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <BrowserRouter>
       <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/people/" element={<PersonagemIndividual/>} />
       </Routes>
     </BrowserRouter>
     
